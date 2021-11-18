@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default function Home() {
@@ -14,8 +14,6 @@ export default function Home() {
       <p>
         <Link to='/customer'>to customer</Link>
       </p>
-
-      <Outlet />
     </div>
   );
 }
