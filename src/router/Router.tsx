@@ -13,14 +13,16 @@ export default function Router() {
       <Routes>
         <Route path='/' element={<Home />}>
           <Route path='goods' element={<Goods />} >
-            {/* 动态路由 */}
+            {/* 默认 子路由 ，在页面 路由为 /goods ，会展示该子路由 */}
+            <Route index element={<GoodsList />} />
+
             <Route path=":id" element={<GoodsDetail />} />
-            <Route path="list" element={<GoodsList />} />
           </Route>
 
           <Route path='customer' element={<Customer />} ></Route>
           <Route path="*" element={<NotFound />} />
         </Route>
+
       </Routes>
     </BrowserRouter>
   );
