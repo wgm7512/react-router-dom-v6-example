@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
+
 
 export default function Goods() {
   const navigate = useNavigate();
@@ -16,6 +17,9 @@ export default function Goods() {
       <h2>Goods Page</h2>
 
       <button onClick={handleClickToHome}>to Home</button>
+
+      {/* 子路由的占位组件 */}
+      <Outlet />
     </div>
   );
 }

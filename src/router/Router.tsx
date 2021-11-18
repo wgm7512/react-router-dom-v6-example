@@ -4,20 +4,23 @@ import Home from "../home/Home";
 import Goods from "../goods/Goods";
 import Customer from "../customer/Customer";
 import NotFound from "../not-found/NotFound";
+import GoodsDetail from "../goods/goods-detail/GoodsDetail";
+import GoodsList from "../goods/goods-list/GoodsList";
 
 export default function Router() {
-  {/* 所有的路由配置均在 BrowserRouter 内部 */ }
   return (
     <BrowserRouter>
-
-      {/* 使用 Routes 替换曾经的 Switch */}
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='goods' element={<Goods />} />
-        <Route path='customer' element={<Customer />} />
+        <Route path='/' element={<Home />}>
+          <Route path='goods' element={<Goods />} >
+            {/* 动态路由 */}
+            <Route path=":id" element={<GoodsDetail />} />
+            <Route path="list" element={<GoodsList />} />
+          </Route>
 
-        {/* 匹配未定义的路由 */}
-        <Route path="*" element={<NotFound />} />
+          <Route path='customer' element={<Customer />} ></Route>
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
